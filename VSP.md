@@ -1,5 +1,19 @@
 # VSP 文件格式定义
 
+VSP 是一个全新的用于生物标本的文件格式。本套工具包提供了 VSP 文件的格式说明、编码、解码工具。
+
+[TOC]
+
+## VSP文件格式定义
+1. 文件扩展名设定为VSP，V 寓意 Virtual，SP 寓意 Specimen、Species，希望做到语义相关，方便记忆；
+2. 文件采用UTF8编码的JSON格式保存；
+3. 内部字段参照了DwC字段标准：Darwin Core quick reference guide
+4. DwC当中缺失，但是常用的字段，参考了NSII、CVH、GBIF、iDigBio等国际数据库，以及用户习惯，做了增补；
+5. 照片保存分两种方式，一种是仅保存网络图像的url地址，VSP 文件比较小；另一种方式是将图像编码后保存到 VSP文件当中，编码方式采用Base64编码方案，便于离线断网时也能浏览，缺点是VSP文件体积会比较大；
+6. 数字标本的内部字段根据情况选用，没有数据的、应用中没有必要的、没有意义的字段可以不用赋值，也不用在 VSP 文件当中出现；VSP解码与显示程序只会显示有数据有意义的字段内部。
+
+## VSP数字标本文件总体结构说明：
+
 VSP文件格式定义，以常用的字段为例，展示文件的结构。
 <table>
   <tr><th>模块</th><th>内部字段名</th><th>解释</th></tr>
@@ -88,3 +102,147 @@ VSP文件格式定义，以常用的字段为例，展示文件的结构。
 	<tr><td>time</td><td>评论时间</td></tr>
 </table>
 	
+## VSP文件实例
+
+```
+{
+  "GUID": "d0fc644b-e945-11e8-a829-f8bc123b8e1e",
+  "modified": "", 
+  "Metadata": {
+      "language": "zh",   
+      "datasetName": "CSH Specimen Database",   
+      "datasetID":"",
+      "url": "http://www.ibiodiversity.net/eherbarium/Specimen.html?museum=CSH&barcode=CSH0062121", 
+      "downloadTime": "2019-11-21"
+  },
+  "SyncSites":[
+          {
+              "websiteID":"CVH",
+              "title":"中国数字植物标本馆",
+              "url":"http://www.cvh.ac.cn/spm/CSH/CSH0062121"
+          },
+          {
+              "websiteID":"NSII",
+              "title":"国家标本资源共享平台",
+              "url":"http://www.nsii.org.cn/2017/specimen.php?id=16878069"
+          }
+      ],
+  "Copyright": {
+      "institution": "上海辰山植物标本馆(CSH Herbarium)", 
+      "website": "http://www.ibiodiversity.net/",
+      "url": "http://www.ibiodiversity.net/eherbarium/Specimen.html?museum=CSH&barcode=CSH0062121",
+
+      "accessRights": "保留所有版权",
+      "bibliographicCitation": "CSH0062121:李宏庆 SDP02138(2011/06/04)",
+      "rightsHolder": "上海辰山植物园",
+      "license": "",
+
+      "contact": "葛斌杰",
+      "email": "gebinjie@csnbgsh.cn"
+  },
+  "Collection": {
+      "occurrenceID": "",
+      "catalogNumber": "",
+
+      "recordedBy": "李宏庆",
+      "recordNumber": "SDP02138",
+      "fieldNumber":"",
+
+      "countryCode": "CN",
+      "country": "中国",
+      "stateProvince": "上海市",
+      "county": "普陀区",
+      "municipality": "",
+      "locality": "长风公园",
+      "verbatimLocality":"",
+
+      "habitat":"",
+
+      "minimumElevationInMeters":"",
+      "maximumElevationInMeters":"",
+      "verbatimElevation":"",
+
+      "minimumDepthInMeters":"",
+      "maximumDepthInMeters":"",
+      "verbatimDepth":"",
+
+      "decimalLatitude": 31.2166667,
+      "decimalLongitude": 121.0333333,
+      "verbatimLatitude":"",
+      "verbatimLongitude":"",
+
+      "locationRemarks":"",
+
+      "Day": "04",
+      "Month": "06",
+      "Year": "2011",
+      "eventDate": "2011-06-04",
+      "verbatimEventDate":"",
+
+      "fieldNotes":""
+  },
+  "Specimen": {
+      "id": "d0fc644b-e945-11e8-a829-f8bc123b8e1e",
+      "barcode": "CSH0062121",
+      "basisOfRecord": "PreservedSpecimen",
+      "state": "良好",
+      "typeStatus": "",
+      "integrity": "有果"
+  },
+  "Taxon": {
+      "kingdom": "Plantae",
+      "phylum": "Gymnospermae",
+      "class": "Gymonospermopsida",
+      "order": "Ginkgoales",
+      "family": "Ginkgoaceae",
+      "genus": "Ginkgo",
+      "species": "Ginkgo biloba",
+      "infraSpecificEpithet": "",
+      "taxonRank": "SPECIES",
+      "scientificName": "Ginkgo biloba",
+      "commonName": "银杏"
+  },
+  "Identifications": [
+      {
+          "identificationID": "",
+          "scientificName": "Ginkgo biloba L.",
+          "commonName":"银杏",
+          "identifiedBy": "李宏庆",
+          "dateIdentified":"2011/06/04",
+          "identificationRemarks":""
+      },{
+          "identificationID": "",
+          "scientificName": "Ginkgo biloba L.",
+          "commonName":"银杏",
+          "identifiedBy": "葛斌杰",
+          "dateIdentified":"2011/06/05",
+          "identificationRemarks":"测试"
+      }
+  ],
+  "Photos": [
+      {
+      "url": "http://www.ibiodiversity.net/Data/CSH/Normal/d0fc644b-e945-11e8-a829-f8bc123b8e1e.JPG",
+      "data": "",
+      "category": "Specimen",
+      "tags": ""
+      }
+  ],
+  "Storage": {
+      "storageID": "081-11"
+  },
+  "Comments": [
+      {
+      "id":"",
+      "userID": "chinaontology",
+      "comment": "这份标本的经纬度格式未转换",
+      "time": "2018-11-20 18:00:00"
+      }, 
+      {
+      "id":"",
+      "userID": "gebinjie",
+      "comment": "已经处理",
+      "time": "2018-11-20 23:15:00"
+      }
+  ]
+}
+```
