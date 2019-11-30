@@ -1,0 +1,60 @@
+.vsp {
+    margin:0;
+    padding:10px;
+    vertical-align: top;
+}
+.vsp h2 {
+    font-size:2rem;
+    font-weight: bold;
+}
+.vsp .vsp_photo{
+    display: inline-block;
+    width:40%;
+    vertical-align: top;
+}
+.vsp .vsp_photo img{
+    max-width:100%;
+}
+.vsp .vsp_data{
+    display: inline-block;
+    vertical-align: top;
+    width:60%;
+    padding:0 2em;
+}
+.vsp .vsp_data .vsp_field {
+    border-bottom:dotted 1px #999;
+    padding: 5px;
+}
+.vsp .vsp_data .vsp_field .title {
+    display: inline-block;
+    width:30%;
+    font-weight:bold;
+}
+.vsp .vsp_data .vsp_field .value {
+    display: inline-block;
+    width:70%;
+}
+
+.vsp .vsp_ident {
+    padding:0.5em 0; 
+    border-bottom: dotted 1px #999;
+}
+
+.vsp .vsp_ident .lname {
+    display: inline;
+    font-weight:bold;
+    padding-right:2em;
+    color:rgb(5, 104, 10);
+}
+.vsp .vsp_ident .cname {
+    display: inline;
+    font-weight:bold;
+    color:rgb(126, 7, 7);
+}
+.vsp .vsp_ident .user{
+    display: inline;
+    padding:0 2em;
+}
+.vsp .vsp_ident .date{
+    display: inline;
+}
