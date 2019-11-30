@@ -5,7 +5,7 @@ VSP 是一种应用于生物标本的开源数字标本文件格式，通过将�
 - [VSP文件格式定义](VSP.md)
 - [Javascript工具包](Javascript/Readme.md)
 - [C#工具包](CSharpComponent/Readme.md)
-- [桌面工具-VSP文件浏览器](Desktop/VSPViewer.md)
+- [桌面工具-VSP文件浏览器](Desktop/Readme.md)
 - [项目演示地址](http://www.ibiodiversity.net/App/VSP/)
 
 
