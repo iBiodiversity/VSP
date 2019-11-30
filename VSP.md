@@ -1,6 +1,6 @@
 # VSP 文件格式定义
 
-
+VSP文件格式定义，以常用的字段为例，展示文件的结构。
 <table>
   <tr><th>模块</th><th>内部字段名</th><th>解释</th></tr>
   <tr><td colspan='2'>GUID</td><td>唯一编码</td></tr>
