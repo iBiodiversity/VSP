@@ -13,8 +13,8 @@ VSP is a new file format for biological specimens, and this toolkit provides for
 VSP 是一个全新的用于生物标本的文件格式。本套工具包提供了 VSP 文件的格式说明、编码、解码工具。
 
 ## VSP文件格式定义
-1. 文件采用UTF8编码的JSON格式保存；
-2. 文件扩展名设定为VSP，V 寓意 Virtual，SP 寓意 Specimen、Species，希望做到语义相关，方便记忆；
+1. 文件扩展名设定为VSP，V 寓意 Virtual，SP 寓意 Specimen、Species，希望做到语义相关，方便记忆；
+2. 文件采用UTF8编码的JSON格式保存；
 3. 内部字段参照了DwC字段标准：Darwin Core quick reference guide
 4. DwC当中缺失，但是常用的字段，参考了NSII、CVH、GBIF、iDigBio等国际数据库，以及用户习惯，做了增补；
 5. 照片保存分两种方式，一种是仅保存网络图像的url地址，VSP 文件比较小；另一种方式是将图像编码后保存到 VSP文件当中，编码方式采用Base64编码方案，便于离线断网时也能浏览，缺点是VSP文件体积会比较大；
