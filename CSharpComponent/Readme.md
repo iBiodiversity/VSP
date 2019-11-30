@@ -2,6 +2,12 @@
 
 主要功能包括了C#语言编写的Dll组件包，基于.NET 平台，可用于服务器后台以及桌面应用等环境当中。
 
+## 组件使用方法
+
+网站应用：拷贝iBiodiversity.Specimen.dll到Asp.net网站的Bin目录；  
+本地应用：拷贝iBiodiversity.Specimen.dll到本地应用程序的目录。   
+引用声明：```using iBiodiversity.Specimen;```  
+
 ## C# 读取数字标本文件
 ```
 static void ReadVSP()
