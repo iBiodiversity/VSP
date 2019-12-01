@@ -8,7 +8,9 @@ VSP 是一种应用于生物标本的开源数字标本文件格式，通过将�
 - [桌面工具-VSP文件浏览器](Desktop/Readme.md)
 - [项目演示地址](http://www.ibiodiversity.net/App/VSP/)
 
+**项目运行截图**
 
+![](images/VSP1.jpg)
 
 
 
