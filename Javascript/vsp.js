@@ -1,5 +1,5 @@
 function VSP(config){
-    this.ID = config.ID;
+    this.ID = 'vsp1.0';
     this.Language = "zh";
     this.RenderEngine = 'Html';
     this.currentVSP = null;
@@ -74,10 +74,35 @@ function VSP(config){
             dateIdentified:"Identified Date"
         }
     };
+    if (config){
+        console.log("has config!");
+        if (config.id){
+            console.log("SET ID:");
+            this.ID = config.id;
+        }
+        if (config.language){
+            console.log("SET Language:");
+            this.Language = config.language;
+        }
+        if (typeof(config.fields)=='object'){
+            console.log("SET Fields:");
+            console.log(config.fields);
+            if (!this.fieldDictionary[this.Language]){
+                this.fieldDictionary[this.Language] = {};
+            }
+            for(var x in config.fields){ 
+                console.log(x);
+                this.fieldDictionary[this.Language][x] = config.fields[x];
+            }
+        }
+    }
 }
 
 VSP.prototype = { 
     constructor:VSP,
+    author:'陈建平',
+    email:'ibiodiversity@gmail.com',
+    github:'https://github.com/iBiodiversity/VSP',
     version:'VPS 1.0',
     showVersion:function(){
         console.log(this.version);
